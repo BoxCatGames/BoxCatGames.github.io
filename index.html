@@ -4,20 +4,23 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Welcome to Box Cat Games, an independent game development studio creating charming indie games.">
-    <meta name="keywords" content="Box Cat Games, indie games, game development, independent studio">
+    <meta name="keywords" content="Box Cat Games, indie games, game development, independent studio, Embiggen It!, Galaxy Cats">
     <meta name="author" content="Box Cat Games">
     
+    <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website">
     <meta property="og:title" content="Box Cat Games | Indie Game Studio">
     <meta property="og:description" content="Charming indie games made with love.">
     <meta property="og:image" content="assets/cat_in_box.png">
 
+    <!-- Twitter -->
     <meta property="twitter:card" content="summary_large_image">
     <meta property="twitter:title" content="Box Cat Games | Indie Game Studio">
     <meta property="twitter:description" content="Charming indie games made with love.">
 
     <title>Box Cat Games | Home</title>
 
+    <!-- Favicon -->
     <link rel="icon" type="image/png" href="favicon.png">
     
     <style>
@@ -41,7 +44,7 @@
             padding: 2rem 1rem;
         }
 
-        /* Skip to content link for keyboard navigation navigation */
+        /* Skip to content link for keyboard navigation */
         .skip-link {
             position: absolute;
             top: -40px;
@@ -65,8 +68,9 @@
             justify-content: center;
             text-align: center;
             flex-grow: 1;
-            max-width: 800px;
+            max-width: 900px;
             width: 100%;
+            padding: 2rem 0;
         }
 
         /* Typography & Layout */
@@ -75,23 +79,21 @@
             font-weight: 800;
             margin-bottom: 1.5rem;
             letter-spacing: -0.02em;
-            outline: none; /* Accessible focus styling below */
+            outline: none;
         }
 
-        /* Screen readers sometimes stutter if focused text gets an aggressive outline, 
-           so we give it a clean, highly visible custom focus state */
         .studio-title:focus {
             outline: 2px dashed #ffcc00;
             outline-offset: 8px;
         }
 
         .logo-container {
-            margin-bottom: 2rem;
+            margin-bottom: 1.5rem;
             max-width: 100%;
         }
 
         .studio-logo {
-            max-width: 224px;
+            max-width: 260px;
             width: 100%;
             height: auto;
             display: block;
@@ -100,26 +102,127 @@
         }
 
         .tagline {
-            font-size: clamp(1.2rem, 4vw, 1.6rem);
+            font-size: clamp(1.1rem, 3.5vw, 1.4rem);
             color: #b3b3b3;
             max-width: 600px;
             font-weight: 400;
+            margin-bottom: 3.5rem;
         }
 
-        /* Footer */
+        /* Responsive 2-Column Game Grid */
+        .game-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 2rem;
+            width: 100%;
+            max-width: 700px;
+            margin-bottom: 2rem;
+        }
+
+        /* Collapse to 1 column on smaller mobile views */
+        @media (max-width: 600px) {
+            .game-grid {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
+        }
+
+        /* Square Button Cards */
+        .game-card-link {
+            text-decoration: none;
+            color: inherit;
+            display: block;
+            border-radius: 12px;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+
+        /* Highly visible interactive & focus states */
+        .game-card-link:hover,
+        .game-card-link:focus {
+            transform: translateY(-4px);
+            outline: none;
+            box-shadow: 0 0 0 3px #ffcc00;
+        }
+
+        .game-card {
+            background-color: #1e1e1e;
+            border: 1px solid #2d2d2d;
+            border-radius: 12px;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            aspect-ratio: 1 / 1; /* Keeps it a perfect big square */
+        }
+
+        .game-image-wrapper {
+            flex-grow: 1;
+            position: relative;
+            background-color: #2a2a2a; /* Placeholder visual skeleton */
+            overflow: hidden;
+        }
+
+        .game-thumbnail {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+
+        .game-info {
+            padding: 1rem;
+            background-color: #1a1a1a;
+            border-top: 1px solid #2d2d2d;
+        }
+
+        .game-title {
+            font-size: 1.25rem;
+            font-weight: 700;
+            margin-bottom: 0.25rem;
+        }
+
+        .game-status {
+            font-size: 0.85rem;
+            color: #ffcc00;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        /* Footer Styles */
         footer {
             text-align: center;
             width: 100%;
             padding-top: 2rem;
             font-size: 0.9rem;
             color: #757575;
+            display: flex;
+            flex-direction: column;
+            gap: 0.75rem;
+            border-top: 1px solid #222;
         }
 
-        /* Respect User Preferences for Motion */
+        .footer-link {
+            color: #ffcc00;
+            text-decoration: none;
+            font-weight: 500;
+            align-self: center;
+            padding: 4px 8px;
+            border-radius: 4px;
+            transition: background-color 0.2s;
+        }
+
+        .footer-link:hover,
+        .footer-link:focus {
+            background-color: rgba(255, 204, 0, 0.1);
+            outline: 2px dashed #ffcc00;
+            outline-offset: 2px;
+        }
+
         @media (prefers-reduced-motion: reduce) {
             * {
                 animation: none !important;
                 transition: none !important;
+                transform: none !important;
             }
         }
     </style>
@@ -144,22 +247,51 @@
         <p class="tagline">
             Small games. Big cats.
         </p>
+
+        <!-- Big Square Project Link Grid -->
+        <section class="game-grid" aria-label="Our Apps and Games">
+            
+            <!-- App 1: Embiggen It! -->
+            <a href="embiggen-it.html" class="game-card-link" aria-label="View Embiggen It! utility app details and privacy policy">
+                <article class="game-card">
+                    <div class="game-image-wrapper">
+                        <img src="embiggen-thumbnail.png" alt="Embiggen It! app interface display" class="game-thumbnail">
+                    </div>
+                    <div class="game-info">
+                        <h2 class="game-title">Embiggen It!</h2>
+                        <span class="game-status" style="color: #4caf50;">Available Now</span>
+                    </div>
+                </article>
+            </a>
+
+            <!-- Game 2: Galaxy Cats -->
+            <a href="galaxy-cats.html" class="game-card-link" aria-label="View Galaxy Cats game details and privacy policy">
+                <article class="game-card">
+                    <div class="game-image-wrapper">
+                        <img src="galaxy-cats-thumbnail.png" alt="Galaxy Cats concept artwork showing space felines" class="game-thumbnail">
+                    </div>
+                    <div class="game-info">
+                        <h2 class="game-title">Galaxy Cats</h2>
+                        <span class="game-status">Upcoming</span>
+                    </div>
+                </article>
+            </a>
+
+        </section>
     </main>
 
     <footer>
+        <a href="mailto:boxcatgamesdev@gmail.com" class="footer-link">Contact Us (Email link)</a>
         <p>&copy; <span id="year"></span> Box Cat Games. All rights reserved.</p>
     </footer>
 
     <script>
-        // Accessibility Focus Handling on Load
         window.addEventListener('DOMContentLoaded', () => {
             const studioName = document.getElementById('studio-name');
             if (studioName) {
-                // Focus the heading so screen readers announce the site name immediately on entry
                 studioName.focus();
             }
 
-            // Automatically keep the copyright year up to date
             const yearSpan = document.getElementById('year');
             if (yearSpan) {
                 yearSpan.textContent = new Date().getFullYear();
