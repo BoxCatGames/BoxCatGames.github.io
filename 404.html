@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>404 - Page Not Found | Box Cat Games</title>
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="favicon.png">
+
+    <style>
+        /* Modern Reset & Accessible Defaults */
+        *, *::before, *::after {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            background-color: #121212; /* Matching studio theme */
+            color: #f5f5f5;
+            line-height: 1.6;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 2rem 1rem;
+        }
+
+        /* Container styling */
+        main {
+            max-width: 500px;
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .error-code {
+            font-size: clamp(4rem, 15vw, 6rem);
+            font-weight: 900;
+            color: #ffcc00;
+            line-height: 1;
+            margin-bottom: 1rem;
+            letter-spacing: -0.05em;
+            outline: none;
+        }
+
+        .error-code:focus {
+            outline: 2px dashed #ffcc00;
+            outline-offset: 8px;
+        }
+
+        /* Cat Image Styling */
+        .cat-container {
+            width: 280px;
+            height: 280px;
+            margin-bottom: 2rem;
+            position: relative;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .cat-404-image {
+            max-width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-12px); }
+        }
+
+        /* Message text */
+        h2 {
+            font-size: clamp(1.5rem, 5vw, 2rem);
+            margin-bottom: 1rem;
+            font-weight: 700;
+        }
+
+        p {
+            color: #b3b3b3;
+            font-size: 1.1rem;
+            margin-bottom: 2.5rem;
+            max-width: 400px;
+        }
+
+        /* Accessible CTA Button */
+        .home-button {
+            display: inline-block;
+            background-color: #ffcc00;
+            color: #000000;
+            text-decoration: none;
+            padding: 0.8rem 2rem;
+            font-weight: 700;
+            border-radius: 8px;
+            font-size: 1.1rem;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+            transition: transform 0.2s ease, background-color 0.2s ease, box-shadow 0.2s ease;
+        }
+
+        .home-button:hover {
+            background-color: #ffe066;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+        }
+
+        .home-button:focus {
+            outline: none;
+            box-shadow: 0 0 0 4px #ffffff, 0 0 0 7px #ffcc00;
+        }
+
+        /* Handle user motion preferences smoothly */
+        @media (prefers-reduced-motion: reduce) {
+            .cat-404-image {
+                animation: none !important;
+            }
+            .home-button {
+                transition: none !important;
+                transform: none !important;
+            }
+            .home-button:hover {
+                transform: none !important;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <main>
+        <!-- Autofocusing the heading allows screen readers to announce the error immediately -->
+        <h1 id="error-heading" class="error-code" tabindex="-1">404</h1>
+
+        <div class="cat-container">
+            <!-- Replace 'assets/404-cat.png' with your actual image path -->
+            <img src="assets/Midnight.gif" 
+                 alt="A black cat hissing occasionally." 
+                 class="cat-404-image"
+                 width="256"
+                 height="256">
+        </div>
+
+        <h2>Oh no! A cardboard box emergency.</h2>
+        <p>The page you are looking for seems to have climbed into a box and completely vanished into another galaxy.</p>
+
+        <a href="index.html" class="home-button">Take Me Home</a>
+    </main>
+
+    <script>
+        // Ensure screen readers process the page context update right away
+        window.addEventListener('DOMContentLoaded', () => {
+            const errorHeading = document.getElementById('error-heading');
+            if (errorHeading) {
+                errorHeading.focus();
+            }
+        });
+    </script>
+</body>
+</html>
