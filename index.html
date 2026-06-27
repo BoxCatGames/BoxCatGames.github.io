@@ -20,9 +20,10 @@
 
     <title>Box Cat Games | Home</title>
 
-    <!-- Favicon -->
     <link rel="icon" type="image/png" href="favicon.png">
     <link rel="stylesheet" href="style.css">
+
+    <script src="common.js" defer></script>
 </head>
 <body>
 
@@ -81,19 +82,5 @@
         <a href="mailto:boxcatgamesdev@gmail.com" class="footer-link">Contact Us (Email link)</a>
         <p>&copy; <span id="year"></span> Box Cat Games. All rights reserved.</p>
     </footer>
-
-    <script>
-        window.addEventListener('DOMContentLoaded', () => {
-            const studioName = document.getElementById('studio-name');
-            if (studioName) {
-                studioName.focus();
-            }
-
-            const yearSpan = document.getElementById('year');
-            if (yearSpan) {
-                yearSpan.textContent = new Date().getFullYear();
-            }
-        });
-    </script>
 </body>
 </html>

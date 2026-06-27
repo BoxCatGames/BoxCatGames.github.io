@@ -46,8 +46,4 @@ document.addEventListener('DOMContentLoaded', () => {
             <p>&copy; ${new Date().getFullYear()} Box Cat Games. All rights reserved.</p>
         </footer>
     `;
-
-    // Accessibility focus shift to the new dynamic H1
-    const appTitle = document.getElementById('app-title');
-    if (appTitle) appTitle.focus();
 });

@@ -1,5 +1,5 @@
 /* ==========================================================================
-   1. Core Reset & Layout (Index Favored)
+   1. Core Reset & Layout
    ========================================================================== */
 *, *::before, *::after {
     box-sizing: border-box;
@@ -9,7 +9,6 @@
 
 body {
     font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
-    background-color: #222224; /* Dark theme with high contrast */
     color: #f5f5f5;
     line-height: 1.6;
     min-height: 100vh;
@@ -18,6 +17,15 @@ body {
     justify-content: space-between;
     align-items: center;
     padding: 2rem 1rem;
+    position: relative;
+    overflow-x: hidden;
+
+    /* Dynamic Smooth Pastel Rainbow 
+       Using an 8-stop system transitioning over 40 seconds 
+    */
+    background: linear-gradient(135deg, var(--color-1, #2b1f3d), var(--color-2, #1b263b));
+    animation: rainbowShift 40s ease-in-out infinite alternate;
+    background-color: #222224;
 }
 
 /* Skip to content link for keyboard navigation navigation */
@@ -303,5 +311,91 @@ footer {
         animation: none !important;
         transition: none !important;
         transform: none !important;
+    }
+}
+
+
+/* ==========================================================================
+   Background Ambiance (Twinkling Stars & Color Engines)
+   ========================================================================== */
+@keyframes rainbowShift {
+    0% {
+        --color-1: #362547; /* Soft Pastel Violet */
+        --color-2: #222d42; /* Soft Slate Navy */
+    }
+    20% {
+        --color-1: #223740; /* Muted Seafoam Teal */
+        --color-2: #263d37; /* Gentle Mint Sage */
+    }
+    40% {
+        /* NEW: Soft, brightened pastel gold & creamy peach */
+        --color-1: #4a4031; /* Cozy Warm Vanilla Gold */
+        --color-2: #4f3b35; /* Soft Muted Peach Cream */
+    }
+    60% {
+        --color-1: #4d2f2b; /* Dusty Rose Pink */
+        --color-2: #382436; /* Soft Plum Silk */
+    }
+    80% {
+        --color-1: #2a223d; /* Pastel Lavender Shadow */
+        --color-2: #20313a; /* Soft Steel Blue */
+    }
+    100% {
+        --color-1: #362547; /* Loop smoothly back to beginning */
+        --color-2: #222d42;
+    }
+}
+
+/* Modern CSS property registration to make linear gradients animatable */
+@property --color-1 {
+    syntax: '<color>';
+    inherits: false;
+    initial-value: #2a1b35;
+}
+@property --color-2 {
+    syntax: '<color>';
+    inherits: false;
+    initial-value: #1a2332;
+}
+
+/* Starfield Overlay Element */
+#starfield {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    pointer-events: none; /* Allows user clicks to pass completely through safely */
+    z-index: -1; /* Placed behind content layout elements */
+    overflow: hidden;
+}
+
+/* Base individual star profile */
+.star {
+    position: absolute;
+    width: 2px;
+    height: 2px;
+    background-color: #d1d5db; /* Silver sparkle */
+    border-radius: 50%;
+    opacity: 0;
+    box-shadow: 0 0 4px #ffffff;
+    animation: twinkle var(--duration, 4s) ease-in-out infinite;
+    animation-delay: var(--delay, 0s);
+}
+
+@keyframes twinkle {
+    0%, 100% { opacity: 0.1; transform: scale(0.8); }
+    50% { opacity: 0.8; transform: scale(1.2); }
+}
+
+/* Handle system accessibility settings gracefully */
+@media (prefers-reduced-motion: reduce) {
+    body {
+        animation: none !important;
+        background: linear-gradient(135deg, #2a1b35, #1a2332); /* Fixed cozy setting */
+    }
+    .star {
+        animation: none !important;
+        opacity: 0.4; /* Fixed soft glow */
     }
 }
