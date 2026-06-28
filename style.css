@@ -1,3 +1,15 @@
+/* style.css */
+
+/* Variables */
+:root {
+    --primary-color: #f5f5f8;
+    --secondary-color: #b3b3b5;
+    --highlight-color: #CBE2FE;
+    --divider-color: #ccc;
+    --box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+}
+
+
 /* ==========================================================================
    1. Core Reset & Layout
    ========================================================================== */
@@ -9,7 +21,7 @@
 
 body {
     font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
-    color: #f5f5f5;
+    color: var(--primary-color);
     line-height: 1.6;
     min-height: 100vh;
     display: flex;
@@ -23,21 +35,22 @@ body {
     /* Dynamic Smooth Pastel Rainbow 
        Using an 8-stop system transitioning over 40 seconds 
     */
-    background: linear-gradient(135deg, var(--color-1, #2b1f3d), var(--color-2, #1b263b));
+    background: linear-gradient(135deg, var(--color-1), var(--color-2));
     animation: rainbowShift 40s ease-in-out infinite alternate;
-    background-color: #222224;
 }
 
 /* Skip to content link for keyboard navigation navigation */
 .skip-link {
     position: absolute;
-    top: -40px;
+    top: -42px;
     left: 0;
-    background: #ffcc00;
+    background: var(--highlight-color);
     color: #000;
-    padding: 8px;
+    padding: 8px 12px;
     z-index: 100;
     transition: top 0.2s;
+    font-weight: bold;
+    text-decoration: none;
 }
 
 .skip-link:focus {
@@ -69,7 +82,7 @@ header {
 }
 
 .back-link {
-    color: #ffcc00;
+    color: var(--highlight-color);
     text-decoration: none;
     font-weight: 500;
     display: inline-block;
@@ -97,7 +110,7 @@ header {
 }
 
 .studio-title:focus, .app-title:focus {
-    outline: 2px dashed #ffcc00;
+    outline: 2px dashed var(--highlight-color);
     outline-offset: 8px;
 }
 
@@ -123,12 +136,12 @@ header {
     width: 100%;
     height: auto;
     border-radius: 24px;
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+    box-shadow: var(--box-shadow);
 }
 
 .tagline {
     font-size: clamp(1.1rem, 3.5vw, 1.4rem);
-    color: #b3b3b3;
+    color: var(--secondary-color);
     max-width: 600px;
     font-weight: 400;
     margin-bottom: 5rem;
@@ -164,17 +177,18 @@ header {
 .game-card-link:hover,
 .game-card-link:focus {
     outline: none;
-    box-shadow: 0 0 0 3px #ffcc00;
+    box-shadow: 0 0 0 3px var(--highlight-color);
 }
 
 .game-card {
-    background-color: #1e1e1e;
+    background-color: #333344;
     border: 1px solid #2d2d2d;
     border-radius: 12px;
     overflow: hidden;
     display: flex;
     flex-direction: column;
     aspect-ratio: 1 / 1;
+    box-shadow: var(--box-shadow);
 }
 
 .game-image-wrapper {
@@ -206,7 +220,7 @@ header {
 
 .game-status {
     font-size: 0.85rem;
-    color: #ffcc00;
+    color: var(--highlight-color);
     font-weight: 600;
     text-transform: uppercase;
     letter-spacing: 0.05em;
@@ -223,7 +237,7 @@ header {
 
 .app-description {
     font-size: 1.15rem;
-    color: #d4d4d4;
+    color: var(--primary-color);
     text-align: left;
     margin-bottom: 3rem;
 }
@@ -231,7 +245,7 @@ header {
 .divider {
     border: 0;
     height: 2px;
-    background-color: #999;
+    background-color: var(--divider-color);
     margin-bottom: 3rem;
     width: 100%;
 }
@@ -244,11 +258,11 @@ header {
 .privacy-section h2 {
     font-size: 1.75rem;
     margin-bottom: 1.5rem;
-    color: #ffcc00;
+    color: var(--highlight-color);
 }
 
 .privacy-content {
-    color: #b3b3b3;
+    color: var(--secondary-color);
     font-size: 1rem;
 }
 
@@ -259,7 +273,7 @@ header {
 .privacy-content h3 {
     font-size: 1.2rem;
     margin: 1.5rem 0 0.5rem 0;
-    color: #f5f5f5;
+    color: var(--primary-color);
 }
 
 .privacy-content ul {
@@ -279,15 +293,15 @@ footer {
     width: 100%;
     padding-top: 2rem;
     font-size: 0.9rem;
-    color: #757575;
+    color: var(--secondary-color);
     display: flex;
     flex-direction: column;
     gap: 0.75rem;
-    border-top: 2px solid #999;
+    border-top: 2px solid var(--divider-color);
 }
 
 .footer-link {
-    color: #ffcc00;
+    color: var(--highlight-color);
     text-decoration: none;
     font-weight: 500;
     align-self: center;
@@ -298,8 +312,8 @@ footer {
 
 .footer-link:hover,
 .footer-link:focus {
-    background-color: rgba(255, 204, 0, 0.1);
-    outline: 2px dashed #ffcc00;
+    background-color: rgba(203, 226, 254, 0.1);
+    outline: 2px dashed var(--highlight-color);
     outline-offset: 2px;
 }
 
@@ -350,12 +364,12 @@ footer {
 @property --color-1 {
     syntax: '<color>';
     inherits: false;
-    initial-value: #2a1b35;
+    initial-value: #362547;
 }
 @property --color-2 {
     syntax: '<color>';
     inherits: false;
-    initial-value: #1a2332;
+    initial-value: #222d42;
 }
 
 /* Starfield Overlay Element */
@@ -392,7 +406,7 @@ footer {
 @media (prefers-reduced-motion: reduce) {
     body {
         animation: none !important;
-        background: linear-gradient(135deg, #2a1b35, #1a2332); /* Fixed cozy setting */
+        background: linear-gradient(135deg, var(--color1), var(--color2)); /* Fixed cozy setting */
     }
     .star {
         animation: none !important;
