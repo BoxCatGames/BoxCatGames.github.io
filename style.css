@@ -93,26 +93,55 @@ header {
     outline: none;
 }
 
-.studio-title, .app-title {
+h1 {
     font-weight: 800;
-    letter-spacing: -0.02em;
     outline: none;
-}
-
-.studio-title {
     font-size: clamp(2.5rem, 8vw, 4rem);
     margin-bottom: 1.5rem;
 }
 
+h2 {
+    font-size: clamp(1.5rem, 5vw, 2rem);
+    margin-bottom: 1rem;
+    font-weight: 700;
+}
+
 .app-title {
+    font-weight: 800;
+    letter-spacing: -0.02em;
+    outline: none;
     font-size: clamp(2rem, 6vw, 3rem);
     margin-bottom: 1.5rem;
 }
 
-.studio-title:focus, .app-title:focus {
+button, a.button {
+    display: inline-block;
+    background-color: var(--highlight-color);
+    color: #000000;
+    text-decoration: none;
+    padding: 0.8rem 2rem;
+    font-weight: 700;
+    border-radius: 8px;
+    font-size: 1.1rem;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+}
+
+/* Hover & focus states */
+
+h1:focus, .app-title:focus,
+button:hover, a.button:hover,
+button:focus, a.button:focus {
     outline: 2px dashed var(--highlight-color);
     outline-offset: 8px;
 }
+
+p {
+    color: var(--secondary-color);
+    font-size: 1.1rem;
+    margin-bottom: 2.5rem;
+    max-width: 400px;
+}
+
 
 /* Logo Sizing Profiles */
 .logo-container {
@@ -286,7 +315,7 @@ header {
 }
 
 /* ==========================================================================
-   5. Footer Environment
+   5. Footer
    ========================================================================== */
 footer {
     text-align: center;

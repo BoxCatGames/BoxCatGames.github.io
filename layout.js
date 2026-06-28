@@ -43,7 +43,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
         <footer>
             <a href="mailto:boxcatgamesdev@gmail.com" class="footer-link">Contact Us (Email link)</a>
-            <p>&copy; ${new Date().getFullYear()} Box Cat Games. All rights reserved.</p>
+            <div>&copy; ${new Date().getFullYear()} Box Cat Games. All rights reserved.</div>
         </footer>
     `;
 });
