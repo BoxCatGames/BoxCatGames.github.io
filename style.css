@@ -97,7 +97,7 @@ h1 {
     font-weight: 800;
     outline: none;
     font-size: clamp(2.5rem, 8vw, 4rem);
-    margin-bottom: 1.5rem;
+    margin-bottom: 3rem;
 }
 
 h2 {
@@ -173,7 +173,7 @@ p {
     color: var(--secondary-color);
     max-width: 600px;
     font-weight: 400;
-    margin-bottom: 5rem;
+    margin-bottom: 10rem;
 }
 
 /* ==========================================================================
