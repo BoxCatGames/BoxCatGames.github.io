@@ -1,0 +1,67 @@
+{
+  "name": "Embiggen It!",
+
+  "notes": [],
+
+  "features": [
+    {
+      "id": "general",
+      "title": "General",
+      "description": "",
+
+      "tests": [
+        {
+          "id": "Immediate typing",
+          "priority": "medium",
+          "preconditions": [],
+          "action": "Open app",
+          "expected": ["The keyboard is up and the user can immediately type."]
+        },
+        {
+          "id": "Clear button",
+          "priority": "medium",
+          "preconditions": ["The user is on the main app scene", "There is text already typed in the text-entry area."],
+          "action": "Tap the 'x' button",
+          "expected": ["The text in the text-entry area is cleared."]
+        },
+        {
+          "id": "Fullscreen mode",
+          "priority": "critical",
+          "preconditions": ["The user is on the main app scene", "There is text already typed in the text-entry area."],
+          "action": "Tap the 'Embiggen It!' button",
+          "expected": ["The text is viewable in fullscreen mode.",
+                       "The phone is at maximum brightness.",
+                       "Rotating the phone rotates the text orientation regardless of if phone rotation is on",
+                       "Long text is scrollable and does not shrink the text."]
+        },
+        {
+          "id": "Exiting fullscreen",
+          "priority": "critical",
+          "preconditions": ["The user is in fullscreen mode, viewing the big text."],
+          "action": "Tap the screen.",
+          "expected": ["Fullscreen mode is exited.",
+                       "The phone is at regular brightness instead of maximum brightness.",
+                       "The user is back at the main app scene, ready to type."]
+        },
+        {
+          "id": "Settings",
+          "priority": "medium",
+          "preconditions": ["The user is on the main app scene."],
+          "action": "Tap the settings/gear button.",
+          "expected": ["The Settings overlay appears.",
+                       "The user can set a color mode.",
+                       "The app version is visible."
+                       "The user can close the overlay with a button or by tapping outside the overlay."]
+        },
+        {
+          "id": "Settings persistence",
+          "priority": "medium",
+          "preconditions": ["The user has changed the settings from their default(s)."],
+          "action": "Completely close and reopen the app.",
+          "expected": ["The user's chosen settings are persisted."]
+        }
+
+      ]
+    }
+  ]
+}

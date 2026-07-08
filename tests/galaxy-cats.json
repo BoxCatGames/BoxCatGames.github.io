@@ -1,0 +1,137 @@
+{
+  "name": "Galaxy Cats",
+
+  "notes": ["Planet scene: The scene where you can view and tap on the planets.",
+            "Star scene: The scene where you can catch shooting stars.",
+            "Meteor scene: The scene where you can catch meteors.",
+            "Game scene: The on-planet scene where the different treehouses and cats appear"],
+
+  "features": [
+    {
+      "id": "general",
+      "title": "General",
+      "description": "",
+
+      "tests": [
+        {
+          "id": "Phone rotation",
+          "priority": "low",
+          "preconditions": ["The app is open."],
+          "action": "Rotate from portrait to landscape and back again.",
+          "expected": ["The app does not change orientation or crash."]
+        },
+        {
+          "id": "Game save",
+          "priority": "critical",
+          "preconditions": ["The app is open and progress has been made (resources collected, planets unlocked, cats visited)."],
+          "action": "Completely close and reopen the app.",
+          "expected": ["Progress has been saved."]
+        },
+        {
+          "id": "Branding",
+          "priority": "low",
+          "preconditions": ["The app is not currently open."],
+          "action": "Open the app.",
+          "expected": ["The 'Box Cat Games' splash screen shows for a few seconds.",
+                       "The splash screen fades into the Planet scene, which shows the 'Galaxy Cats' name at the top for a few seconds.",
+                       "The Planet scene shows the 'Galaxy Cats' name only on first load."]
+        }
+      ]
+    },
+    {
+      "id": "controls",
+      "title": "Controls",
+      "description": "",
+
+      "tests": [
+        {
+          "id": "Resource visibility",
+          "priority": "critical",
+          "preconditions": ["The app is open."],
+          "action": "View the scene. Tap on the screen if the controls are hidden.",
+          "expected": ["The resource counters (stars and meteors) are visible in every scene.",
+                       "The resource counters are hidden in Chill Mode (accessible from Settings)"]
+        },
+        {
+          "id": "Hidden controls",
+          "priority": "low",
+          "preconditions": ["The app is open."],
+          "action": "Don't tap anything for a few seconds (around 10).",
+          "expected": ["The controls should fade out.",
+                       "Tapping the screen anywhere brings the controls back."]
+        },
+        {
+          "id": "Resource updates",
+          "priority": "critical",
+          "preconditions": ["The user is on a Star or Meteor-catching scene or on the Game scene, ready to purchase from the in-game store."],
+          "action": "Take action to change the resource counts. Catch a star or meteor or make a purchase from the in-game store.",
+          "expected": ["The associated resource counter updates immediately."]
+        },
+        {
+          "id": "Control visibility",
+          "priority": "critical",
+          "preconditions": ["The app is open."],
+          "action": "View the scene. Tap on the screen if the controls are hidden.",
+          "expected": ["The Planet scene allows the user to go to the star and meteor-catching scenes.",
+                       "The Planet scene allows the user to collect the daily rewards.",
+                       "The Planet scene allows the user to access the settings.",
+                       "The Star and Meteor-catching scenes allow the user to go back.",
+                       "The Game scene allows the user to go to the Star, Meteor, or Planet scenes.",
+                       "The Game scene allows the user to collect the daily rewards.",
+                       "The Game scene allows the user to view the list of cats for that planet.",
+                       "The Game scene allows the user to access the settings.",
+                       "The Game scene allows the user to view the store for that planet."
+                      ]
+        }
+      ]
+    },
+
+    {
+      "id": "settings",
+      "title": "Settings",
+      "description": "",
+
+      "tests": [
+        {
+          "id": "",
+          "priority": "",
+          "preconditions": [""],
+          "action": "",
+          "expected": [""]
+        }
+      ]
+    },
+
+    {
+      "id": "gameplay",
+      "title": "Gameplay",
+      "description": "",
+
+      "tests": [
+        {
+          "id": "",
+          "priority": "",
+          "preconditions": [""],
+          "action": "",
+          "expected": [""]
+        }
+      ]
+    },
+
+    {
+      "id": "cat_interactions",
+      "title": "Cat Interactions",
+      "description": "",
+
+      "tests": [
+        {
+          "id": "",
+          "priority": "",
+          "preconditions": [""],
+          "action": "",
+          "expected": [""]
+        }
+      ]
+    }
+  ]
+}
