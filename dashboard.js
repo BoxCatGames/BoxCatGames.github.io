@@ -51,6 +51,12 @@ document.addEventListener('DOMContentLoaded', () => {
     function renderDashboard() {
         if (!currentData) return;
 
+        // Update the subtitle with the active project name from the JSON
+        const projectSubtitle = document.getElementById('project-subtitle');
+        if (projectSubtitle && currentData.name) {
+            projectSubtitle.textContent = currentData.name;
+        }
+
         const targetPriority = priorityFilter.value;
         requirementsView.innerHTML = '';
         navigationTree.innerHTML = '';
