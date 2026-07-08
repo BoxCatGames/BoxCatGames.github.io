@@ -50,7 +50,7 @@
           "action": "Tap the settings/gear button.",
           "expected": ["The Settings overlay appears.",
                        "The user can set a color mode.",
-                       "The app version is visible."
+                       "The app version is visible.",
                        "The user can close the overlay with a button or by tapping outside the overlay."]
         },
         {
