@@ -12,14 +12,14 @@
       "tests": [
         {
           "id": "Immediate typing",
-          "priority": "medium",
+          "priority": "high",
           "preconditions": [],
           "action": "Open app",
           "expected": ["The keyboard is up and the user can immediately type."]
         },
         {
           "id": "Clear button",
-          "priority": "medium",
+          "priority": "high",
           "preconditions": ["The user is on the main app scene", "There is text already typed in the text-entry area."],
           "action": "Tap the 'x' button",
           "expected": ["The text in the text-entry area is cleared."]
@@ -45,7 +45,7 @@
         },
         {
           "id": "Settings",
-          "priority": "medium",
+          "priority": "high",
           "preconditions": ["The user is on the main app scene."],
           "action": "Tap the settings/gear button.",
           "expected": ["The Settings overlay appears.",
@@ -55,12 +55,11 @@
         },
         {
           "id": "Settings persistence",
-          "priority": "medium",
+          "priority": "high",
           "preconditions": ["The user has changed the settings from their default(s)."],
           "action": "Completely close and reopen the app.",
           "expected": ["The user's chosen settings are persisted."]
         }
-
       ]
     }
   ]
