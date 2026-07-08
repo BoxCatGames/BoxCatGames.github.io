@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>QA Requirements Dashboard | Box Cat Games</title>
+    <link rel="icon" type="image/png" href="favicon.png">
+    
+    <link rel="stylesheet" href="style.css">
+    
+    <style>
+        /* Dashboard Specific Structural Enhancements */
+        .dashboard-layout {
+            display: grid;
+            grid-template-columns: 260px 1fr;
+            gap: 2rem;
+            width: 100%;
+            max-width: 1200px;
+            text-align: left;
+            margin-top: 2rem;
+            align-items: start;
+        }
+
+        /* Sticky Sidebar Navigation & Controls */
+        .sidebar {
+            position: sticky;
+            top: 2rem;
+            background-color: #1e1e24;
+            border: 1px solid #2d2d35;
+            border-radius: 12px;
+            padding: 1.5rem;
+            max-height: calc(100vh - 4rem);
+            overflow-y: auto;
+        }
+
+        .control-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .control-label {
+            display: block;
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            color: var(--secondary-color);
+            margin-bottom: 0.5rem;
+            font-weight: 700;
+            letter-spacing: 0.05em;
+        }
+
+        select {
+            width: 100%;
+            padding: 0.6rem;
+            background-color: #121212;
+            color: var(--primary-color);
+            border: 1px solid var(--divider-color);
+            border-radius: 6px;
+            font-size: 0.95rem;
+            outline: none;
+        }
+        select:focus { border-color: var(--highlight-color); }
+
+        .nav-tree {
+            list-style: none;
+            margin-top: 1rem;
+            border-top: 1px solid #2d2d35;
+            padding-top: 1rem;
+        }
+
+        .nav-item {
+            margin-bottom: 0.5rem;
+        }
+
+        .nav-link {
+            color: var(--secondary-color);
+            text-decoration: none;
+            font-size: 0.9rem;
+            display: block;
+            padding: 0.25rem 0;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+        .nav-link:hover { color: var(--highlight-color); }
+
+        /* Main Content View & Requirements Cards */
+        .content-area {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+            width: 100%;
+        }
+
+        .feature-card {
+            background-color: #1e1e24;
+            border: 1px solid #2d2d35;
+            border-radius: 12px;
+            overflow: hidden;
+            scroll-margin-top: 2rem;
+        }
+
+        .feature-header {
+            padding: 1.25rem 1.5rem;
+            background-color: #25252e;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            user-select: none;
+        }
+
+        .feature-header h2 {
+            font-size: 1.35rem;
+            color: var(--highlight-color);
+        }
+
+        .accordion-icon {
+            transition: transform 0.2s ease;
+            color: var(--secondary-color);
+        }
+        .collapsed .accordion-icon { transform: rotate(-90deg); }
+        .collapsed + .feature-body { display: none; }
+
+        .feature-body {
+            padding: 1.5rem;
+            border-top: 1px solid #2d2d35;
+        }
+
+        .feature-desc {
+            color: var(--secondary-color);
+            margin-bottom: 1.5rem;
+            font-size: 1.05rem;
+        }
+
+        /* Test Matrices Layout */
+        .test-case {
+            background-color: #141419;
+            border-left: 4px solid var(--highlight-color);
+            border-radius: 0 8px 8px 0;
+            padding: 1.25rem;
+            margin-bottom: 1rem;
+        }
+        
+        .test-case.priority-critical { border-left-color: #ff4a4a; }
+        .test-case.priority-high { border-left-color: #ff9f43; }
+        .test-case.priority-low { border-left-color: #54a0ff; }
+
+        .test-meta {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 0.75rem;
+            font-size: 0.85rem;
+        }
+
+        .priority-badge {
+            text-transform: uppercase;
+            font-weight: 700;
+            font-size: 0.75rem;
+            padding: 2px 6px;
+            border-radius: 4px;
+            background: #25252e;
+        }
+        .priority-critical .priority-badge { color: #ff4a4a; }
+        .priority-high .priority-badge { color: #ff9f43; }
+        .priority-low .priority-badge { color: #54a0ff; }
+
+        .test-section {
+            margin-bottom: 0.5rem;
+            font-size: 0.95rem;
+        }
+        .test-section strong { color: var(--highlight-color); }
+
+        .test-list {
+            margin-left: 1.25rem;
+            margin-top: 0.25rem;
+        }
+
+        /* Responsive Breakpoints */
+        @media (max-width: 850px) {
+            .dashboard-layout { grid-template-columns: 1fr; }
+            .sidebar { position: relative; top: 0; max-height: none; }
+        }
+    </style>
+</head>
+<body>
+
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+
+    <header style="max-width: 1200px;">
+        <a href="index.html" class="back-link">← Back to Box Cat Games</a>
+    </header>
+
+    <main id="main-content" style="max-width: 1200px; justify-content: start;">
+        <h1 class="app-title" id="dashboard-title" tabindex="-1">QA Verification Dashboard</h1>
+        
+        <div class="dashboard-layout">
+            <aside class="sidebar">
+                <div class="control-group">
+                    <label class="control-label" for="app-selector">Target Project</label>
+                    <select id="app-selector">
+                        <option value="embiggen-it.json">Embiggen It!</option>
+                        <option value="galaxy-cats.json">Galaxy Cats</option>
+                    </select>
+                </div>
+
+                <div class="control-group">
+                    <label class="control-label" for="priority-filter">Filter Priority</label>
+                    <select id="priority-filter">
+                        <option value="all">All Priorities</option>
+                        <option value="critical">Critical</option>
+                        <option value="high">High</option>
+                        <option value="low">Low</option>
+                    </select>
+                </div>
+
+                <nav aria-label="Feature Quick Navigation">
+                    <span class="control-label">Jump to Feature</span>
+                    <ul class="nav-tree" id="navigation-tree"></ul>
+                </nav>
+            </aside>
+
+            <section class="content-area" id="requirements-view" aria-live="polite"></section>
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy; <span id="year"></span> Box Cat Games. QA Internal Infrastructure.</p>
+    </footer>
+
+    <script src="common.js" defer></script>
+    <script src="dashboard.js" defer></script>
+</body>
+</html>
