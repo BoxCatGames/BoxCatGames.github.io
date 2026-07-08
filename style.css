@@ -67,7 +67,7 @@ main {
     flex-grow: 1;
     max-width: 900px;
     width: 100%;
-    padding: 2rem 0 10rem;
+    padding: 2rem 0;
 }
 
 /* ==========================================================================
@@ -97,13 +97,20 @@ h1 {
     font-weight: 800;
     outline: none;
     font-size: clamp(2.5rem, 8vw, 4rem);
-    margin-bottom: 3rem;
+    margin-bottom: 1.5rem;
 }
 
 h2 {
     font-size: clamp(1.5rem, 5vw, 2rem);
     margin-bottom: 1rem;
     font-weight: 700;
+}
+
+p {
+    color: var(--secondary-color);
+    font-size: 1.1rem;
+    margin-bottom: 2.5rem;
+    max-width: 400px;
 }
 
 .app-title {
@@ -126,20 +133,25 @@ button, a.button {
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
 }
 
+select {
+    width: 100%;
+    padding: 0.6rem;
+    background-color: #121212;
+    color: var(--primary-color);
+    border: 1px solid var(--divider-color);
+    border-radius: 6px;
+    font-size: 0.95rem;
+    outline: none;
+}
+
 /* Hover & focus states */
 
 h1:focus, .app-title:focus,
 button:hover, a.button:hover,
-button:focus, a.button:focus {
+button:focus, a.button:focus,
+select:focus {
     outline: 2px dashed var(--highlight-color);
     outline-offset: 8px;
-}
-
-p {
-    color: var(--secondary-color);
-    font-size: 1.1rem;
-    margin-bottom: 2.5rem;
-    max-width: 400px;
 }
 
 
