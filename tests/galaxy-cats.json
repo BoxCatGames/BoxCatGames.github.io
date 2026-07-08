@@ -93,11 +93,49 @@
 
       "tests": [
         {
-          "id": "",
-          "priority": "",
-          "preconditions": [""],
-          "action": "",
-          "expected": [""]
+          "id": "Settings visibility",
+          "priority": "high",
+          "preconditions": ["The app is open."],
+          "action": "Tap on the settings/gear button",
+          "expected": ["The settings should appear."]
+        },
+        {
+          "id": "Chill mode",
+          "priority": "low",
+          "preconditions": ["The settings are open."],
+          "action": "Tap on a chill-mode button.",
+          "expected": ["The Space or Meteor scene should load in Chill Mode (no shooting stars/meteors)."]
+        },
+        {
+          "id": "Preferences",
+          "priority": "low",
+          "preconditions": ["The settings are open."],
+          "action": "Tap on a preference.",
+            "expected": ["The left-to-right setting changes the direction of the shooting stars and meteors.",
+                         "The music, SFX/audio, and planet-effects settings take immediate effect."]
+        },
+        {
+          "id": "Accessibility",
+          "priority": "high",
+          "preconditions": ["The settings are open."],
+          "action": "Tap on an accessibility option.",
+            "expected": ["The slow-mode setting slows the velocity of the shooting stars and meteors.",
+                         "The low-animation settings take immediate effect.",
+                         "The low-animation settings stop the twinkling of the background stars, resource-counter badge updates, etc."]
+        },
+        {
+          "id": "Version numver",
+          "priority": "high",
+          "preconditions": ["The app is open."],
+          "action": "Tap on the settings/gear button.",
+          "expected": ["The app version is visible."]
+        },
+        {
+          "id": "Dev mode",
+          "priority": "critical",
+          "preconditions": ["The app is open."],
+          "action": "Tap on the settings/gear button.",
+          "expected": ["There is no 'Tech Zone' or mention of 'Dev Mode' on the settings overlay."]
         }
       ]
     },
@@ -109,12 +147,39 @@
 
       "tests": [
         {
-          "id": "",
-          "priority": "",
-          "preconditions": [""],
-          "action": "",
-          "expected": [""]
-        }
+          "id": "Planet unlocking",
+          "priority": "critical",
+          "preconditions": ["At least one variant of each item in each of the planets' stores have been purchased.",
+                            "Between 1-3 planets are unlocked/visible on the Planet scene."],
+          "action": "Go to the Planet scene.",
+          "expected": ["A new planet is visible and can be visited/tapped.",
+                       "There are a total of 4 planets to unlock."]
+        },
+        {
+          "id": "Store visibility",
+          "priority": "critical",
+          "preconditions": ["On the Game scene"],
+          "action": "Click on the Store button.",
+          "expected": ["The store for that planet is visible and scrollable.",
+                       "If an item has variants the user can scroll through them.",
+                       "The prices for items are visible.",
+                       "The currently in-use variant can be switched with a new purchase or a previously purchased variant."]
+        },
+        {
+          "id": "Store preview",
+          "priority": "high",
+          "preconditions": ["On the Game scene with the Store open."],
+          "action": "Choose an unpurchased variant for an item and click the purchase button.",
+          "expected": ["The item should be visible on the Game scene before purchase."]
+        },
+        {
+          "id": "Store purchase",
+          "priority": "critical",
+          "preconditions": ["On the Game scene with the Store open."],
+          "action": "Choose an unpurchased variant for an item and click the purchase button.",
+          "expected": ["After the preview the purchase can be completed or canceled.",
+                       "If purchasing an item, the star count should decrease by the price."]
+        }          
       ]
     },
 
