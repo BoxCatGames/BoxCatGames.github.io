@@ -25,7 +25,10 @@ document.addEventListener('DOMContentLoaded', () => {
                 <img src="${data.logo}" alt="${data.logoAlt}" class="app-logo" width="180" height="180">
                 
                 <h1 id="app-title" class="app-title" tabindex="-1">${data.name}</h1>
-                
+
+                <!-- Render the badge if it exists in the data object, otherwise render empty string -->
+                ${data.badgeHtml ? data.badgeHtml : ''}
+    
                 <div class="app-description">
                     ${data.description}
                 </div>
